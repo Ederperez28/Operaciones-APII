@@ -1,0 +1,101 @@
+const express = require ('express'); // importar libreria express
+const app = express(); // iniciar libreria express
+const morgan = require ('morgan');
+const cors = require ('cors'); // importa el paquete 
+
+//Configuraciones servidor
+app.set('port', process.env.PORT || 3000);
+app.set('json spaces', 2);
+
+
+console.log("Hola Mundo")
+
+console.log("mi primer api")
+
+
+app.use(morgan('dev')); //peticiones de consola morgan maneja errores
+
+app.use(express.urlencoded({extended:false})); // para decir que vamos a manejar apis
+
+app.use(express.json());  // manejar el formato json
+app.use(cors()); // permitir peticiones de otros sitios 
+
+
+app.get('/', (req, res) => {
+    res.json(
+        {
+            "Title": "Hola Mundo"
+        }
+    );
+})
+
+app.post('/sumar', (req, res) => { // http://localhost:3000/sumar
+    const { num1, num2 } = req.body; // se declaran los datos de entrada
+
+    //Validar que se hayan enviado los dos numeros que no esten vacio
+    if (!num1 || !num2) {
+        return res.status(400).send({ error: 'Faltan numeros para sumar'});
+    }
+
+    //Sumar los numeros
+    const resultado = num1 + num2;
+
+    //Enviar el resultado al front
+
+    res.send({ resultado });
+});
+
+app.post('/restar', (req, res) => { // http://localhost:3000/restar
+    const { num1, num2 } = req.body; // se declaran los datos de entrada
+
+    //Validar que se hayan enviado los dos numeros que no esten vacio
+    if (!num1 || !num2) {
+        return res.status(400).send({ error: 'Faltan numeros para restar'});
+    }
+
+    //Sumar los numeros
+    const resultado = num1 - num2;
+
+    //Enviar el resultado al front
+
+    res.send({ resultado });
+});
+
+app.post('/dividir', (req, res) => { // http://localhost:3000/dividir
+    const { num1, num2 } = req.body; // se declaran los datos de entrada
+
+    //Validar que se hayan enviado los dos numeros que no esten vacio
+    if (!num1 || !num2) {
+        return res.status(400).send({ error: 'Faltan numeros para dividir'});
+    }
+
+    //Sumar los numeros
+    const resultado = num1 / num2;
+
+    //Enviar el resultado al front
+
+    res.send({ resultado });
+});
+
+app.post('/multiplicar', (req, res) => { // http://localhost:3000/multiplicar
+    const { num1, num2 } = req.body; // se declaran los datos de entrada
+
+    //Validar que se hayan enviado los dos numeros que no esten vacio
+    if (!num1 || !num2) {
+        return res.status(400).send({ error: 'Faltan numeros para multiplicar'});
+    }
+
+    //Sumar los numeros
+    const resultado = num1 * num2;
+
+    //Enviar el resultado al front
+
+    res.send({ resultado });
+});
+
+
+
+// Iniciando servidor
+app.listen(app.get('port'),()=>{
+    //console.log(`Server listening on port ${app.get('port')}`);
+});
