@@ -109,6 +109,110 @@ app.post('/Area-Triangulo', (req, res) => { // localhost:3000/Area-Triangulo
     res.send({ resultado });
 });
 
+app.post('/Area-Cuadrado', (req, res) => { // localhost:3000/Area-Triangulo
+    const { Lado } = req.body; // se declaran los datos de entrada
+
+    //Validar que se hayan enviado los dos numeros que no esten vacio
+    if ( !Lado ) {
+        return res.status(400).send({ error: 'Faltan numeros para realizar operacion'});
+    }
+
+    //Sumar los numeros
+    const resultado = Lado * Lado;
+
+    //Enviar el resultado al front
+
+    res.send({ resultado });
+});
+
+
+app.post('/Area-Circulo', (req, res) => { // localhost:3000/Area-Triangulo
+    const { Radio } = req.body; // se declaran los datos de entrada
+
+    //Validar que se hayan enviado los dos numeros que no esten vacio
+    if ( !Radio ) {
+        return res.status(400).send({ error: 'Faltan numeros para realizar operacion'});
+    }
+
+    //Sumar los numeros
+    const resultado = 3.1416 * Radio^2;
+
+    //Enviar el resultado al front
+
+    res.send({ resultado });
+});
+
+
+app.post('/Area-Circulo', (req, res) => { // localhost:3000/Area-Triangulo
+    const { Radio } = req.body; // se declaran los datos de entrada
+
+    //Validar que se hayan enviado los dos numeros que no esten vacio
+    if ( !Radio ) {
+        return res.status(400).send({ error: 'Faltan numeros para realizar operacion'});
+    }
+
+    //Sumar los numeros
+    const resultado = 3.1416 * Radio^2;
+
+    //Enviar el resultado al front
+
+    res.send({ resultado });
+});
+
+
+
+app.post('/Perimetro-Circulo', (req, res) => { // localhost:3000/Area-Triangulo
+    const { Diametro } = req.body; // se declaran los datos de entrada
+
+    //Validar que se hayan enviado los dos numeros que no esten vacio
+    if ( !Diametro ) {
+        return res.status(400).send({ error: 'Faltan numeros para realizar operacion'});
+    }
+
+    //Sumar los numeros
+    const resultado = 3.1416 * Diametro;
+
+    //Enviar el resultado al front
+
+    res.send({ resultado });
+});
+
+
+app.post('/Perimetro-Cuadrado', (req, res) => { // localhost:3000/Area-Triangulo
+    const { Lado } = req.body; // se declaran los datos de entrada
+
+    //Validar que se hayan enviado los dos numeros que no esten vacio
+    if ( !Lado ) {
+        return res.status(400).send({ error: 'Faltan numeros para realizar operacion'});
+    }
+
+    //Sumar los numeros
+    const resultado = Lado * 4;
+
+    //Enviar el resultado al front
+
+    res.send({ resultado });
+});
+
+
+
+app.post('/Perimetro-Triangulo', (req, res) => { // localhost:3000/Area-Triangulo
+    const { Lado } = req.body; // se declaran los datos de entrada
+
+    //Validar que se hayan enviado los dos numeros que no esten vacio
+    if ( !Lado ) {
+        return res.status(400).send({ error: 'Faltan numeros para realizar operacion'});
+    }
+
+    //Sumar los numeros
+    const resultado = Lado * Lado * Lado;
+
+    //Enviar el resultado al front
+
+    res.send({ resultado });
+});
+
+
 
 
 // Iniciando servidor
