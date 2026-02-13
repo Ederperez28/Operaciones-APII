@@ -93,12 +93,12 @@ app.post('/multiplicar', (req, res) => { // http://localhost:3000/Multiplicacion
     res.send({ resultado });
 });
 
-app.post('/Area-Triangulo', (req, res) => { // http://localhost:3000/Multiplicacion
+app.post('/Area-Triangulo', (req, res) => { // localhost:3000/Area-Triangulo
     const { Base, Altura } = req.body; // se declaran los datos de entrada
 
     //Validar que se hayan enviado los dos numeros que no esten vacio
-    if (!num1 || !num2) {
-        return res.status(400).send({ error: 'Faltan numeros para multiplicar'});
+    if (!Base || !Altura) {
+        return res.status(400).send({ error: 'Faltan numeros para realizar operacion'});
     }
 
     //Sumar los numeros
