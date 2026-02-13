@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
     );
 })
 
-app.post('/sumar', (req, res) => { // http://localhost:3000/sumar
+app.post('/sumar', (req, res) => { // http://localhost:3000/Sumar
     const { num1, num2 } = req.body; // se declaran los datos de entrada
 
     //Validar que se hayan enviado los dos numeros que no esten vacio
@@ -45,7 +45,7 @@ app.post('/sumar', (req, res) => { // http://localhost:3000/sumar
     res.send({ resultado });
 });
 
-app.post('/restar', (req, res) => { // http://localhost:3000/restar
+app.post('/restar', (req, res) => { // http://localhost:3000/Resta
     const { num1, num2 } = req.body; // se declaran los datos de entrada
 
     //Validar que se hayan enviado los dos numeros que no esten vacio
@@ -61,7 +61,7 @@ app.post('/restar', (req, res) => { // http://localhost:3000/restar
     res.send({ resultado });
 });
 
-app.post('/dividir', (req, res) => { // http://localhost:3000/dividir
+app.post('/dividir', (req, res) => { // http://localhost:3000/Division
     const { num1, num2 } = req.body; // se declaran los datos de entrada
 
     //Validar que se hayan enviado los dos numeros que no esten vacio
@@ -77,7 +77,7 @@ app.post('/dividir', (req, res) => { // http://localhost:3000/dividir
     res.send({ resultado });
 });
 
-app.post('/multiplicar', (req, res) => { // http://localhost:3000/multiplicar
+app.post('/multiplicar', (req, res) => { // http://localhost:3000/Multiplicacion
     const { num1, num2 } = req.body; // se declaran los datos de entrada
 
     //Validar que se hayan enviado los dos numeros que no esten vacio
@@ -87,6 +87,22 @@ app.post('/multiplicar', (req, res) => { // http://localhost:3000/multiplicar
 
     //Sumar los numeros
     const resultado = num1 * num2;
+
+    //Enviar el resultado al front
+
+    res.send({ resultado });
+});
+
+app.post('/Area-Triangulo', (req, res) => { // http://localhost:3000/Multiplicacion
+    const { Base, Altura } = req.body; // se declaran los datos de entrada
+
+    //Validar que se hayan enviado los dos numeros que no esten vacio
+    if (!num1 || !num2) {
+        return res.status(400).send({ error: 'Faltan numeros para multiplicar'});
+    }
+
+    //Sumar los numeros
+    const resultado = Base * Altura / 2;
 
     //Enviar el resultado al front
 
